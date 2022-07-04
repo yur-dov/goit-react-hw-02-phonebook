@@ -1,6 +1,7 @@
 import ContactForm from './Contact/ContactForm'
 import ContactList from './ContactList/ContactList'
 import FilterForm from './Filter/Filter'
+import css from './app.module.css'
 
 import React, {Component} from "react";
 
@@ -47,13 +48,19 @@ filter: '',
  
     const visibleCard = this.getVisiblCard();
     return (
-      <div>
-        <h2>PhoneBook</h2>
-        <ContactForm addContact={this.addContact} />
-        <h2>Contacts</h2>
-        <FilterForm value={this.state.filter} onChange={this.changeFilter } />
-        <ContactList contacts={visibleCard} onDeleteContact={this.deleteContactCard} />
+      <div className={css.container}>
+        <h1 className={css.title}>PhoneBook</h1>
+        <div className={css.add_contact}>
+          <h2 className={css.title_add}>Add Contact</h2>
+          <ContactForm addContact={this.addContact} />
+          <h2 className={css.title_search}>Search contact</h2>
+          <FilterForm value={this.state.filter} onChange={this.changeFilter} />
+        </div>
+        <div className={css.contacts}>
+          <h2 className={css.title_contact}>Contacts</h2>
+          <ContactList contacts={visibleCard} onDeleteContact={this.deleteContactCard} />
         
+        </div>
       </div>
     );
   }

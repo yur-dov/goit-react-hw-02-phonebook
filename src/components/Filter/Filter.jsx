@@ -1,8 +1,9 @@
 import React from "react";
+import css from './filte.module.css'
 
 const FilterForm = ({value, onChange}) =>
-    <label>
+    <label className={css.label_filter}>
         Find contact by Name:
-        <input type="text" value={value} onChange={onChange} />
+        <input className={css.search_input} type="text" value={value} onChange={onChange} />
         </label>
 export default FilterForm;
